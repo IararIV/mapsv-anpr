@@ -1,12 +1,10 @@
-Data governance
-
-images/
-|_ raw_images/
-    |_ <matricula>.jpg
-|_ localization/
-    |_ <matricula>_<localization>.jpg
-|_ segmentation/
-    |_ <matricula>_<segmentation>.jpg
-|_ ocr/
-    |_ <matricula>
-        |_<character>.jpg
+images/\
+|_ raw_images/\
+    |_ matricula.png\
+|_ localization/\
+    |_ matricula_localization.png\
+|_ segmentation/\
+    |_ matricula_segmentation.png\
+|_ ocr/\
+    |_ matricula\
+        |_ character.png
