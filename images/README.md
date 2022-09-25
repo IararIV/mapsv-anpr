@@ -1,10 +1,15 @@
+Data governance - how images are stored in our application so the next stage know where to look at.
+
 images/\
 |_ raw_images/\
-    |_ matricula.png\
+    |_ (matricula).png\
 |_ localization/\
-    |_ matricula_localization.png\
+    |_ (matricula) _ localization.png\
 |_ segmentation/\
-    |_ matricula_segmentation.png\
+    |_ (matricula) _ segmentation.png\
 |_ ocr/\
-    |_ matricula\
-        |_ character.png
+    |_ (matricula)\
+        |_ chars/\
+            |_ (index) _ (character).png\
+        |_ digits/\
+            |_ (index) _ (character).png\
