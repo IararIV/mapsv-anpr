@@ -31,25 +31,32 @@ Llavors, ara que sabem què és ANPR en realitat, repassem breument els 4 passos
   - Generar prediccions donat un fitxer o un conjunt d'ells
   - Visualitzar els resultats de cada pas de l'algoritme
   - Guardar les imatges resultants de cada pas i de la predicció final
-   
+  
+  
+## Environment
+A partir del fitxer mapsv-anpr/requirements.txt pots replicar l'environment amb totes les dependencies que hem necessitat durant el projecte. Abans de poder executar el programa, has de:
+
+  1. Crear un venv (recomanem fer-ho a la carpeta root del projecte): python -m venv venv
+  2. Activar l'environment: source venc/bin/activate
+  3. Instal·lar els paquets necessaris: python -m pip install -r requirements.txt
    
 ## Exemple:
 
- cd mapsv-anpr/src
+ cd mapsv-anpr/src \
  python main.py
  
- A partir d'aqui, segueix les indicacions de la UI. 
+ A partir d'aqui, segueix les indicacions de la UI.
  
- Exemple: prediccions per totes les imatges de la nostra DB guardant els resultats de cada pas.
- mode --> 'predict'
- write --> 'y'
+ Exemple: prediccions per totes les imatges de la nostra DB guardant els resultats de cada pas.\
+ mode --> 'predict'\
+ write --> 'y'\
  path --> '/home/gerard/PycharmProjects/mapsv-anpr/images/raw_images/' (full path to you project images)
  
  Podras veure els resultats de cada pas seguint la governancia de la carpeta 'images'
  
- Exemple: visualització interactiva de cada pas del nostre algoritme donada una imatge.
- mode --> 'visualize'
- write --> 'n'
- path --> '../images/raw_images/1621HRH.jpg'
+ Exemple: visualització interactiva de cada pas del nostre algoritme donada una imatge.\
+ mode --> 'visualize'\
+ write --> 'n'\
+ path --> '../images/raw_images/1621HRH.jpg'\
  A partir d'aqui ves indicant 'y' o 'n' per visualitzar cadascun dels passos.
  
