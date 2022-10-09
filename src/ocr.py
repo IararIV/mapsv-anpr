@@ -6,6 +6,7 @@ import annoy as annoy
 import cv2
 import numpy as np
 from PIL import Image
+from matplotlib import pyplot as plt
 
 
 class OCR:
@@ -17,7 +18,7 @@ class OCR:
         self.padding = 0
         self.crop_kp = None
         # Predict character
-        self.f = 784
+        self.f = 152
 
         digit_model = annoy.AnnoyIndex(self.f, 'angular')
         digit_model.load("../models/digits/digit_model.ann")
@@ -34,6 +35,7 @@ class OCR:
                             "latent_space": chars_latent_space}
 
     def predict_char(self, idx: Number, image: np.array) -> Text:
+        image = self.preprocess(image)
         descriptors = self.get_descriptors(image)
         if idx < 4:
             model = self.digit_model["model"]
@@ -48,8 +50,21 @@ class OCR:
         return pred
 
     @staticmethod
-    def get_descriptors(image):
-        return image.flatten()
+    def preprocess(image: np.array) -> np.array:
+        image = (image - image.min())/(image.max()-image.min())
+        return np.where(image == 0, 1, 0).astype(np.uint8)
+
+    @staticmethod
+    def get_descriptors(image: np.array) -> np.array:
+        features = []
+        block_size = [(3, 3), (5, 5), (7, 7)]
+        for (w, h) in block_size:
+            for y in range(0, image.shape[0], h):
+                for x in range(0, image.shape[1], w):
+                    box = image[y:y + h, x:x + w]
+                    n_pixels = cv2.countNonZero(box) / float(box.shape[0] * box.shape[1])
+                    features.append(n_pixels)
+        return np.array(features)
 
     def get_characters_from_plate(self, image: np.array) -> List[np.array]:
         bin_image = self.binarize_image(image)
