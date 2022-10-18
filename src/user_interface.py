@@ -158,8 +158,3 @@ class Menu:
         print()
         if go in ["n", "no"]:
             quit()
-
-
-
-
-
